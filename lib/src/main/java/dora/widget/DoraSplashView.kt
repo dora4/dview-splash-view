@@ -6,11 +6,13 @@ import android.os.CountDownTimer
 import android.os.Handler
 import android.os.Looper
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import dora.widget.splashview.R
 
 class DoraSplashView @JvmOverloads constructor(
     context: Context,
@@ -40,18 +42,19 @@ class DoraSplashView @JvmOverloads constructor(
         skipView = findViewById(R.id.tvSkip)
         attrs?.let {
             val ta: TypedArray = context.obtainStyledAttributes(it, R.styleable.DoraSplashView)
-            val arrResId = ta.getResourceId(R.styleable.DoraSplashView_ds_images, 0)
+            val arrResId = ta.getResourceId(R.styleable.DoraSplashView_dview_sv_images, 0)
             if (arrResId != 0) {
                 val taImg = resources.obtainTypedArray(arrResId)
                 images = IntArray(taImg.length()) { idx -> taImg.getResourceId(idx, 0) }
                 taImg.recycle()
             }
-            switchInterval = ta.getInt(R.styleable.DoraSplashView_ds_switchInterval, switchInterval.toInt()).toLong()
-            countdownTime = ta.getInt(R.styleable.DoraSplashView_ds_countdown, countdownTime.toInt()).toLong()
-            skipView.setTextColor(ta.getColor(R.styleable.DoraSplashView_ds_skipTextColor, skipView.currentTextColor))
-            skipView.setBackgroundColor(ta.getColor(R.styleable.DoraSplashView_ds_skipBgColor, 0x66000000))
-            skipView.textSize = ta.getDimension(R.styleable.DoraSplashView_ds_skipTextSize, skipView.textSize)
-            ta.getString(R.styleable.DoraSplashView_ds_skipTextTemplate)?.let {
+            switchInterval = ta.getInt(R.styleable.DoraSplashView_dview_sv_switchInterval, switchInterval.toInt()).toLong()
+            countdownTime = ta.getInt(R.styleable.DoraSplashView_dview_sv_countdown, countdownTime.toInt()).toLong()
+            skipView.setTextColor(ta.getColor(R.styleable.DoraSplashView_dview_sv_skipTextColor, skipView.currentTextColor))
+            skipView.setBackgroundColor(ta.getColor(R.styleable.DoraSplashView_dview_sv_skipBgColor, 0x66000000))
+            skipView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                ta.getDimension(R.styleable.DoraSplashView_dview_sv_skipTextSize, skipView.textSize))
+            ta.getString(R.styleable.DoraSplashView_dview_sv_skipTextTemplate)?.let {
                 skipTextTemplate = it
             }
             ta.recycle()

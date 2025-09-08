@@ -3,18 +3,18 @@
 <resources>
     <declare-styleable name="DoraSplashView">
         <!-- 图片资源数组 -->
-        <attr name="ds_images" format="reference" />
+        <attr name="dview_sv_images" format="reference" />
         <!-- 广告图片切换间隔（毫秒） -->
-        <attr name="ds_switchInterval" format="integer" />
+        <attr name="dview_sv_switchInterval" format="integer" />
         <!-- 倒计时总时长（毫秒） -->
-        <attr name="ds_countdown" format="integer" />
+        <attr name="dview_sv_countdown" format="integer" />
         <!-- 跳过按钮文字颜色 -->
-        <attr name="ds_skipTextColor" format="color" />
+        <attr name="dview_sv_skipTextColor" format="color" />
         <!-- 跳过按钮背景色 -->
-        <attr name="ds_skipBgColor" format="color" />
+        <attr name="dview_sv_skipBgColor" format="color" />
         <!-- 跳过按钮文字大小 -->
-        <attr name="ds_skipTextSize" format="dimension" />
+        <attr name="dview_sv_skipTextSize" format="dimension" />
         <!-- 跳过按钮文案模板，%d 会被剩余秒数替换 -->
-        <attr name="ds_skipTextTemplate" format="string" />
+        <attr name="dview_sv_skipTextTemplate" format="string" />
     </declare-styleable>
 </resources>
